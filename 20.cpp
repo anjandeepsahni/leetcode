@@ -60,6 +60,7 @@ public:
                 stack.push_back(ch);
             else
             {
+                // Using ASCII codes here.
                 if ((stack.size() > 0) &&
                     ((ch == ')' && stack.back() == ch - 1) ||
                      (stack.back() == ch - 2)))

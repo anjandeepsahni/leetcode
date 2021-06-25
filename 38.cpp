@@ -53,6 +53,7 @@ public:
     {
         string seq = "";
         string prevSeq = "1";
+
         for (int i = 1; i < n; i++)
         {
             int count = 1;
@@ -60,7 +61,9 @@ public:
             for (int j = 1; j < prevSeq.size(); j++)
             {
                 if (prevSeq[j] == prevCh)
+                {
                     count++;
+                }
                 else
                 {
                     seq += to_string(count);
@@ -77,6 +80,7 @@ public:
             prevSeq = seq;
             seq = "";
         }
+
         return prevSeq;
     }
 };

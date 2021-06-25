@@ -37,9 +37,10 @@ using namespace std;
 class Solution
 {
 public:
-    vector<int> plusOne(vector<int> &digits)
+    vector<int> plusOne(vector<int>& digits)
     {
         int carry = 1;
+
         for (int i = digits.size() - 1; i >= 0; i--)
         {
             if (digits[i] + carry > 9)
@@ -55,14 +56,18 @@ public:
                 break;
             }
         }
+
         if (carry == 1)
         {
             // one carry left after addition, shift digits
             digits.push_back(0);
             for (int i = digits.size() - 2; i >= 0; i--)
+            {
                 digits[i + 1] = digits[i];
+            }
             digits[0] = 1;
         }
+
         return digits;
     }
 };

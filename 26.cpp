@@ -58,11 +58,14 @@ using namespace std;
 class Solution
 {
 public:
-    int removeDuplicates(vector<int> &nums)
+    int removeDuplicates(vector<int>& nums)
     {
         // Early stopping.
         if (nums.size() <= 1)
+        {
             return nums.size();
+        }
+
         int length = 1;
         int prevNum = nums[0];
         for (int i = 1; i < nums.size(); i++)
@@ -74,6 +77,7 @@ public:
                 prevNum = nums[i];
             }
         }
+
         return length;
     }
 };

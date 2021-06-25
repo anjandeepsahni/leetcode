@@ -42,8 +42,12 @@ public:
         // All negative numbers are non-palindrome.
         // If last digit = 0, then palindrome only if x=0.
         if (x < 0 || (x % 10 == 0 && x != 0))
+        {
             return false;
+        }
+
         int rev = 0;
+
         // Reverse half the number.
         while (x > rev)
         {
@@ -51,6 +55,7 @@ public:
             rev = rev * 10 + remainder;
             x = x / 10;
         }
+
         return x == rev || x == rev / 10;
     }
 };

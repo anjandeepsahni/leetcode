@@ -29,27 +29,34 @@ Space Complexity: O(1)
 
 */
 
-#include <vector>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class Solution
 {
 public:
-    string longestCommonPrefix(vector<string> &strs)
+    string longestCommonPrefix(vector<string>& strs)
     {
         int numStrings = strs.size();
         string prefix = "";
+
         // Early stopping
         if (numStrings == 0)
+        {
             return prefix;
+        }
+
         int pos = 0;
         bool end = false;
         while (!end)
         {
             if (pos >= strs[0].length())
+            {
                 break;
+            }
+
             for (int i = 1; i < numStrings; i++)
             {
                 if ((pos >= strs[i].length()) || (strs[i][pos] != strs[0][pos]))
@@ -58,12 +65,14 @@ public:
                     break;
                 }
             }
+
             if (!end)
             {
                 prefix += strs[0][pos];
                 pos++;
             }
         }
+
         return prefix;
     }
 };

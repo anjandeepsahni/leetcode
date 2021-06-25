@@ -43,8 +43,8 @@ Space Complexity: O(n)
 
 */
 
-#include <vector>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -54,19 +54,24 @@ public:
     bool isValid(string s)
     {
         vector<char> stack;
-        for (auto &ch : s)
+        for (auto& ch : s)
         {
             if (ch == '(' || ch == '{' || ch == '[')
+            {
                 stack.push_back(ch);
+            }
             else
             {
-                // Using ASCII codes here.
-                if ((stack.size() > 0) &&
-                    ((ch == ')' && stack.back() == ch - 1) ||
-                     (stack.back() == ch - 2)))
+                if ((stack.size() > 0) && ((ch == ')' && stack.back() == '(') ||
+                                           (ch == '}' && stack.back() == '{') ||
+                                           (ch == ']' && stack.back() == '[')))
+                {
                     stack.pop_back();
+                }
                 else
+                {
                     return false;
+                }
             }
         }
         return (stack.size() == 0);

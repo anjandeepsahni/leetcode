@@ -39,9 +39,12 @@ public:
     int climbStairs(int n)
     {
         if (n <= 2)
+        {
             return n;
-        int two_step_back = 1; // number of ways for n=1
-        int one_step_back = 2; // number of ways for n=2
+        }
+
+        int two_step_back = 1;  // number of ways for n=1
+        int one_step_back = 2;  // number of ways for n=2
         int current = 0;
         for (int i = 3; i <= n; i++)
         {
@@ -49,6 +52,7 @@ public:
             two_step_back = one_step_back;
             one_step_back = current;
         }
+
         return current;
     }
 };

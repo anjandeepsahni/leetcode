@@ -49,9 +49,12 @@ public:
                     length = 1;
                 }
                 else
+                {
                     length++;
+                }
             }
         }
+
         return length;
     }
 };

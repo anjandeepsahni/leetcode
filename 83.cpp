@@ -26,19 +26,24 @@ Space Complexity: O(1)
 struct ListNode
 {
     int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode* next;
+    ListNode(int x) : val(x), next(nullptr)
+    {
+    }
 };
 
 class Solution
 {
 public:
-    ListNode *deleteDuplicates(ListNode *head)
+    ListNode* deleteDuplicates(ListNode* head)
     {
         if (head == nullptr)
+        {
             return head;
-        ListNode *prev = head;
-        ListNode *cur = head->next;
+        }
+
+        ListNode* prev = head;
+        ListNode* cur = head->next;
         while (cur)
         {
             if (cur->val == prev->val)
@@ -53,6 +58,7 @@ public:
                 cur = cur->next;
             }
         }
+
         return head;
     }
 };

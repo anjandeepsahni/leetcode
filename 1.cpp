@@ -22,21 +22,25 @@ Space Complexity: O(n)
 
 */
 
-#include <vector>
 #include <unordered_map>
+#include <vector>
 
 using namespace std;
 
 class Solution
 {
 public:
-    vector<int> twoSum(vector<int> &nums, int target)
+    vector<int> twoSum(vector<int>& nums, int target)
     {
         vector<int> result{-1, -1};
         unordered_map<int, int> numsMap;
+
         // Validate inputs
         if (nums.size() < 2)
+        {
             return result;
+        }
+
         // Loop over all numbers and insert in hashmap
         for (int i = 0; i < nums.size(); i++)
         {
@@ -55,6 +59,7 @@ public:
                 break;
             }
         }
+
         return result;
     }
 };

@@ -46,6 +46,7 @@ public:
         while (x)
         {
             int remainder = x % 10;
+
             // Check for overflow.
             // If reverse == Integer.MAX_VALUE/10, then reverse = 2,147,483,640.
             // We know that anything over 2,147,483,647 causes integer overflow,
@@ -55,12 +56,19 @@ public:
             // -2,147,483,648 causes integer underflow, so remainder cannot be
             // less than -8.
             if (rev > INT_MAX / 10 || (rev == INT_MAX / 10 && remainder > 7))
+            {
                 return 0;
+            }
+
             if (rev < INT_MIN / 10 || (rev == INT_MIN / 10 && remainder < -8))
+            {
                 return 0;
+            }
+
             rev = rev * 10 + remainder;
             x = x / 10;
         }
+
         return rev;
     }
 };

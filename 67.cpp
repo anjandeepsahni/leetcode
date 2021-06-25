@@ -15,7 +15,7 @@ Example 2:
 
 Input: a = "1010", b = "1011"
 Output: "10101"
- 
+
 Constraints:
 
 Each string consists only of '0' or '1' characters.
@@ -42,6 +42,7 @@ public:
         int carry = 0;
         auto ptrA = a.rbegin();
         auto ptrB = b.rbegin();
+
         for (int i = 0; i < max(a.size(), b.size()); ++i)
         {
             int chA = i < a.size() ? *(ptrA + i) - '0' : 0;
@@ -50,8 +51,12 @@ public:
             carry = (chA + chB + carry) / 2;
             sum.push_back(res + '0');
         }
+
         if (carry > 0)
+        {
             sum.push_back(carry + '0');
+        }
+
         reverse(sum.begin(), sum.end());
         return sum;
     }

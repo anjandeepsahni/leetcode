@@ -42,9 +42,15 @@ public:
     int strStr(string haystack, string needle)
     {
         if (needle == "" || haystack == needle)
+        {
             return 0;
+        }
+
         if (haystack.size() < needle.size())
+        {
             return -1;
+        }
+
         for (int i = 0; i <= haystack.size() - needle.size(); i++)
         {
             // check if first char matches
@@ -52,7 +58,10 @@ public:
             {
                 int end = i + needle.size() - 1;
                 if (end > haystack.size() - 1)
+                {
                     return -1;
+                }
+
                 bool match = true;
                 // try searching from needle end
                 for (int j = needle.size() - 1; j > 0; j--)
@@ -65,9 +74,12 @@ public:
                     end--;
                 }
                 if (match)
+                {
                     return i;
+                }
             }
         }
+
         return -1;
     }
 };

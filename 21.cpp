@@ -21,22 +21,30 @@ Space Complexity: O(1)
 struct ListNode
 {
     int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode* next;
+    ListNode(int x) : val(x), next(nullptr)
+    {
+    }
 };
 
 class Solution
 {
 public:
-    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2)
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2)
     {
         // If either is nullptr, return the other list.
         if (l1 == nullptr)
+        {
             return l2;
+        }
+
         if (l2 == nullptr)
+        {
             return l1;
+        }
+
         ListNode dummy(0);
-        ListNode *cur = &dummy;
+        ListNode* cur = &dummy;
         while (l1 != nullptr && l2 != nullptr)
         {
             if (l1->val < l2->val)
@@ -51,10 +59,15 @@ public:
             }
             cur = cur->next;
         }
+
         if (l1 != nullptr)
+        {
             cur->next = l1;
+        }
         else if (l2 != nullptr)
+        {
             cur->next = l2;
+        }
 
         return dummy.next;
     }
